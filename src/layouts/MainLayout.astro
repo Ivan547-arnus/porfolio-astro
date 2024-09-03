@@ -1,0 +1,41 @@
+---
+import { Image } from "astro:assets"
+import me from '../assets/images/me.webp'
+import '../assets/css/main.css'
+import '../assets/css/fonts.css'
+import '../assets/css/theme.css'
+import { ViewTransitions } from "astro:transitions"
+const { title, maxWidth = '600px'} = Astro.props
+---
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ivan Villegas Rojas | Desarollador Full Stack | {title}</title>
+    <link rel="icon" href={me.src}>
+    <meta name="title" content="Ivan Villegas Rojas - Desarollador" />
+    <meta name="description" content="¡Hola! Soy Desarrollador Full Stack con experiencia para crear aplicaciones web dinámicas y responsivas. Con una sólida formación en tecnologías de front-end y back-end." />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="" />
+    <meta property="og:title" content="Ivan Villegas Rojas - Desarollador" />
+    <meta property="og:description" content="¡Hola! Soy Desarrollador Full Stack con experiencia para crear aplicaciones web dinámicas y responsivas. Con una sólida formación en tecnologías de front-end y back-end." />
+    <meta property="og:image" content={me.src} />
+
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content="" />
+    <meta property="twitter:title" content="Ivan Villegas Rojas - Desarollador" />
+    <meta property="twitter:description" content="¡Hola! Soy Desarrollador Full Stack con experiencia para crear aplicaciones web dinámicas y responsivas. Con una sólida formación en tecnologías de front-end y back-end." />
+    <meta property="twitter:image" content={me.src} />
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+
+    <ViewTransitions />
+</head>
+<body>
+    <div class="container" style={`max-width: ${maxWidth}`}>
+        <slot />
+    </div>
+</body>
+</html>

@@ -1,0 +1,35 @@
+---
+import type { GetStaticPaths } from "astro";
+import MainLayout from "../../layouts/MainLayout.astro";
+
+export const getStaticPaths = (() => {
+    
+    return [
+        { params: {name: 'campestre' } },
+        { params: {name: 'skpt' } },
+        { params: {name: 'boletiland' } },
+        { params: {name: 'byond' } },
+        { params: {name: 'dlms' } },
+        { params: {name: 'arvispace' } },
+        { params: {name: 'arvis' } },
+        { params: {name: 'sportcloset' } },
+    ];
+});
+const { name } = Astro.params
+---
+
+
+<MainLayout title={name} maxWidth="780px">
+    <button onclick="history.back()" class="btn secondary"  transition:animate="fade">
+        <i class='bx bx-arrow-back m-r-md'></i>
+        <span>Volver</span>
+    </button>
+	<main class="project-page d-flex justify-content-center align-items-center">
+        <div class="screen" transition:name=`${name}-screen`>
+            <div class="avatar" transition:name={name} transition:animate="fade">
+                <img src={`/images/projects/${name}.webp`}  />
+            </div>
+            <img src={`/images/projects/${name}-screen.png`}  />
+        </div>
+    </main>
+</MainLayout>
