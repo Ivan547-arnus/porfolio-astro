@@ -20,16 +20,16 @@ const { name } = Astro.params
 
 
 <MainLayout title={name} maxWidth="780px">
-    <button onclick="history.back()" class="btn secondary"  transition:animate="fade">
+    <button onclick="history.back()" class="btn secondary" >
         <i class='bx bx-arrow-back m-r-md'></i>
         <span>Volver</span>
     </button>
 	<main class="project-page d-flex justify-content-center align-items-center">
         <div class="screen" transition:name=`${name}-screen`>
             <div class="avatar" transition:name={name} transition:animate="fade">
-                <img src={`/images/projects/${name}.webp`}  />
+                <img src={`/images/projects/${name}.webp`}  alt={`Logo de ${name}`}/>
             </div>
-            <img src={`/images/projects/${name}-screen.png`}  />
+            <img src={`/images/projects/${name}-screen.webp`}  alt={`Proyecto ${name} - vista previa`}/>
         </div>
     </main>
 </MainLayout>
