@@ -41,6 +41,14 @@ button {
     text-wrap: pretty;
 }
 
+.text-caption {
+    font-family: 'nunito-regular';
+    color: var(--secondary-contrast);
+    font-size: .75em;
+    margin: 0;
+    text-wrap: pretty;
+}
+
 .text-secondary {
     color: var(--secondary);
 }
@@ -288,6 +296,10 @@ button {
     flex-wrap: wrap;
 }
 
+.flex-column {
+    flex-direction: column;
+}
+
 .justify-content-center {
     justify-content: center;
 }
@@ -430,4 +442,20 @@ button {
     border-radius: 12px;
     object-fit: cover;
     z-index: 1;
+}
+
+.profile-avatar {
+    border-radius: 12px;
+    background-color: var(--secondary);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 90px;
+    height: 90px;
+}
+
+.profile-avatar img {
+    width: 90%;
+    object-fit: cover;
+    border-radius: 12px;
 }

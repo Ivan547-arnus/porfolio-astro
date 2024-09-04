@@ -16,10 +16,27 @@ export const getStaticPaths = (() => {
     ];
 });
 const { name } = Astro.params
+const capitalizeFirstLetter = (string) => {
+    return string.charAt(0).toUpperCase() + string.slice(1);
+}
 ---
 
 
 <MainLayout title={name} maxWidth="780px">
+    <meta  slot="head" name="title" content={`Ivan Villegas Rojas - Desarollador - Proyecto ${capitalizeFirstLetter(name)}`}/>
+    <meta  slot="head" name="description" content="¡Hola! Soy Desarrollador Full Stack con experiencia para crear aplicaciones web dinámicas y responsivas. Con una sólida formación en tecnologías de front-end y back-end." />
+
+    <meta  slot="head" property="og:type" content="website" />
+    <meta  slot="head" property="og:url" content="" />
+    <meta  slot="head" property="og:title" content={`Ivan Villegas Rojas - Desarollador - Proyecto ${capitalizeFirstLetter(name)}`}/>
+    <meta  slot="head" property="og:description" content="¡Hola! Soy Desarrollador Full Stack con experiencia para crear aplicaciones web dinámicas y responsivas. Con una sólida formación en tecnologías de front-end y back-end." />
+    <meta  slot="head" property="og:image" content={`/images/projects/${name}-screen.webp`} />
+
+    <meta  slot="head" property="twitter:card" content="summary_large_image" />
+    <meta  slot="head" property="twitter:url" content="" />
+    <meta  slot="head" property="twitter:title" content={`Ivan Villegas Rojas - Desarollador - Proyecto ${capitalizeFirstLetter(name)}`} />
+    <meta  slot="head" property="twitter:description" content="¡Hola! Soy Desarrollador Full Stack con experiencia para crear aplicaciones web dinámicas y responsivas. Con una sólida formación en tecnologías de front-end y back-end." />
+    <meta  slot="head" property="twitter:image" content={`/images/projects/${name}-screen.webp`} />
     <button onclick="history.back()" class="btn secondary" >
         <i class='bx bx-arrow-back m-r-md'></i>
         <span>Volver</span>

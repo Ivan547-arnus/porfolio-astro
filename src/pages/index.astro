@@ -1,13 +1,36 @@
 ---
 import MainLayout from "../layouts/MainLayout.astro"
+import me from '../assets/images/me.webp'
 ---
 
 <MainLayout title="Inicio" minwidth="600px">
+	<meta  slot="head" name="title" content="Ivan Villegas Rojas - Desarollador"/>
+    <meta  slot="head" name="description" content="¡Hola! Soy Desarrollador Full Stack con experiencia para crear aplicaciones web dinámicas y responsivas. Con una sólida formación en tecnologías de front-end y back-end." />
+
+    <meta  slot="head" property="og:type" content="website" />
+    <meta  slot="head" property="og:url" content="" />
+    <meta  slot="head" property="og:title" content="Ivan Villegas Rojas - Desarollador" />
+    <meta  slot="head" property="og:description" content="¡Hola! Soy Desarrollador Full Stack con experiencia para crear aplicaciones web dinámicas y responsivas. Con una sólida formación en tecnologías de front-end y back-end." />
+    <meta  slot="head" property="og:image" content={me.src} />
+
+    <meta  slot="head" property="twitter:card" content="summary_large_image" />
+    <meta  slot="head" property="twitter:url" content="" />
+    <meta  slot="head" property="twitter:title" content="Ivan Villegas Rojas - Desarollador" />
+    <meta  slot="head" property="twitter:description" content="¡Hola! Soy Desarrollador Full Stack con experiencia para crear aplicaciones web dinámicas y responsivas. Con una sólida formación en tecnologías de front-end y back-end." />
+    <meta  slot="head" property="twitter:image" content={me.src} />
 	<main>
-		<p class="h1 m-b-md">Hola.</p>
-		<h1 class="h2 m-b-sm">Mi nombre es Ivan.</h1>
-		<p class="text">Soy Desarrollador Full Stack con experiencia para crear aplicaciones web dinámicas y responsivas. Con una sólida formación en tecnologías de front-end y back-end.</p>
-		<p class="text">Realmente me encanta programar, siempre estoy aprendiendo y buscando nuevos desafios.</p>
+		<div class="d-flex m-b-md">
+			<div class="profile-avatar">
+				<img src={me.src} alt="Ivan Villegas Rojas">
+			</div>
+			<div class="m-l-md d-flex flex-column justify-content-center">
+				<h1 class="h1">Ivan Villegas Rojas</h1>
+				<h2 class="h2 ">Desarollador Full Stack</h2>
+				<p class="text-caption">Puebla, Mexico.</p>
+			</div>
+		</div>
+		<p class="text">Tengo experiencia para crear aplicaciones web dinámicas y responsivas. Con una sólida formación en tecnologías de front-end y back-end.</p>
+		<p class="text m-t-md">Realmente me encanta programar, siempre estoy aprendiendo y buscando nuevos desafios.</p>
 		<div class="d-flex justify-content-end m-y-md">
 			<a class="btn secondary icon m-r-md" href="https://www.linkedin.com/in/ivan-villegas-rojas-184889178/" target="_blank">
 				<i class='bx bxl-linkedin bx-sm'></i>
