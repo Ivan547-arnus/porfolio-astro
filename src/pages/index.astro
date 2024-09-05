@@ -1,5 +1,5 @@
 ---
-import MainLayout from "../layouts/MainLayout.astro"
+import MainLayout from '../layouts/MainLayout.astro'
 import me from '../assets/images/me.webp'
 ---
 
@@ -207,15 +207,15 @@ import me from '../assets/images/me.webp'
 	</section>
 	<section style="margin-top: 5em;">
 		<p class="h1 m-y-md text-center">¡Vamos a trabajar juntos!</p>
-		<form>
+		<form method="post" id="contact-form">
 			<label for="email">
-				<p class="text m-b-sm text-center">Escribe tu correo o teléfono y me pondre en contacto contigo.</p>
+				<p class="text m-b-sm text-center">Escribe tu correo y me pondre en contacto contigo.</p>
 			</label>
 			<div class="form-input">
-				<input id="email" type="text" class="input" placeholder="email@ejemplo.com">
-				<button type="submit" class="btn primary btn-icon">
+				<input id="email" name="email" type="text" class="input" placeholder="email@ejemplo.com">
+				<button type="submit" class="btn primary btn-icon" id="contact-btn">
 					<i class='bx bx-send bx-sm'></i>
-					<span>Send</span>
+					<span>Enviar</span>
 				</button>
 			</div>
 		</form>
@@ -238,6 +238,40 @@ import me from '../assets/images/me.webp'
 		</div>
 	</section>
 </MainLayout>
+
+<script>
+	const API_URL = 'https://api.alardearestudio.com/index.php'
+	document.getElementById('contact-form').addEventListener('submit', async(event) => {
+		event.preventDefault()
+		//Estado del boton
+		const btn = document.getElementById('contact-btn') as HTMLButtonElement
+		btn.innerHTML = `<div class="loader"></div>`
+		btn.disabled = true
+		const formData = new FormData(event.target)
+		const request = await fetch(API_URL, {
+			method: 'POST',
+			body: JSON.stringify(Object.fromEntries(formData))
+		})
+		const response = await request.json()
+		if(response.success) {
+			setTimeout(() => {
+				btn.disabled = false
+				btn.innerHTML = `
+					<i class='bx bx-check m-r-sm'></i>
+					<span>¡Enviado!</span>
+				`
+			}, 1000)
+		} else {
+			setTimeout(() => {
+				btn.disabled = false
+				btn.innerHTML = `
+					<i class='bx bxs-error m-r-sm' ></i>
+					<span>Reintentar</span>
+				`
+			}, 1000)
+		}
+	})
+</script>
 
 <script is:inline>
 	particlesJS("particles-js", {
