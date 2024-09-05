@@ -2,51 +2,196 @@
 import type { GetStaticPaths } from "astro";
 import MainLayout from "../../layouts/MainLayout.astro";
 
-export const getStaticPaths = (() => {
-    
-    return [
-        { params: {name: 'campestre' } },
-        { params: {name: 'skpt' } },
-        { params: {name: 'boletiland' } },
-        { params: {name: 'byond' } },
-        { params: {name: 'dlms' } },
-        { params: {name: 'arvispace' } },
-        { params: {name: 'arvis' } },
-        { params: {name: 'sportcloset' } },
-    ];
-});
-const { name } = Astro.params
+export const getStaticPaths = () => {
+  return [
+    { params: { name: "campestre" } },
+    { params: { name: "skpt" } },
+    { params: { name: "boletiland" } },
+    { params: { name: "byond" } },
+    { params: { name: "dlms" } },
+    { params: { name: "arvispace" } },
+    { params: { name: "arvis" } },
+    { params: { name: "sportcloset" } },
+  ];
+};
+const { name } = Astro.params;
 const capitalizeFirstLetter = (string) => {
-    return string.charAt(0).toUpperCase() + string.slice(1);
-}
+  return string.charAt(0).toUpperCase() + string.slice(1);
+};
 ---
 
+<MainLayout title={capitalizeFirstLetter(name)} maxWidth="780px">
+  <meta
+    slot="head"
+    name="title"
+    content={`Ivan Villegas Rojas | Desarollador Full Stack | Proyecto ${capitalizeFirstLetter(name)}`}
+  />
+  <meta
+    slot="head"
+    name="description"
+    content="Desarrollador Full Stack con experiencia para crear aplicaciones web dinámicas y responsivas. Con una sólida formación en tecnologías de front-end y back-end."
+  />
 
-<MainLayout title={name} maxWidth="780px">
-    <meta  slot="head" name="title" content={`Ivan Villegas Rojas - Desarollador - Proyecto ${capitalizeFirstLetter(name)}`}/>
-    <meta  slot="head" name="description" content="¡Hola! Soy Desarrollador Full Stack con experiencia para crear aplicaciones web dinámicas y responsivas. Con una sólida formación en tecnologías de front-end y back-end." />
+  <meta slot="head" property="og:type" content="website" />
+  <meta slot="head" property="og:url" content="" />
+  <meta
+    slot="head"
+    property="og:title"
+    content={`Ivan Villegas Rojas | Desarollador Full Stack | Proyecto ${capitalizeFirstLetter(name)}`}
+  />
+  <meta
+    slot="head"
+    property="og:description"
+    content="Desarrollador Full Stack con experiencia para crear aplicaciones web dinámicas y responsivas. Con una sólida formación en tecnologías de front-end y back-end."
+  />
+  <meta
+    slot="head"
+    property="og:image"
+    content={`/images/projects/${name}-screen.webp`}
+  />
 
-    <meta  slot="head" property="og:type" content="website" />
-    <meta  slot="head" property="og:url" content="" />
-    <meta  slot="head" property="og:title" content={`Ivan Villegas Rojas - Desarollador - Proyecto ${capitalizeFirstLetter(name)}`}/>
-    <meta  slot="head" property="og:description" content="¡Hola! Soy Desarrollador Full Stack con experiencia para crear aplicaciones web dinámicas y responsivas. Con una sólida formación en tecnologías de front-end y back-end." />
-    <meta  slot="head" property="og:image" content={`/images/projects/${name}-screen.webp`} />
-
-    <meta  slot="head" property="twitter:card" content="summary_large_image" />
-    <meta  slot="head" property="twitter:url" content="" />
-    <meta  slot="head" property="twitter:title" content={`Ivan Villegas Rojas - Desarollador - Proyecto ${capitalizeFirstLetter(name)}`} />
-    <meta  slot="head" property="twitter:description" content="¡Hola! Soy Desarrollador Full Stack con experiencia para crear aplicaciones web dinámicas y responsivas. Con una sólida formación en tecnologías de front-end y back-end." />
-    <meta  slot="head" property="twitter:image" content={`/images/projects/${name}-screen.webp`} />
-    <button onclick="history.back()" class="btn secondary" >
-        <i class='bx bx-arrow-back m-r-md'></i>
-        <span>Volver</span>
-    </button>
-	<main class="project-page d-flex justify-content-center align-items-center">
-        <div class="screen" transition:name=`${name}-screen`>
-            <div class="avatar" transition:name={name} transition:animate="fade">
-                <img src={`/images/projects/${name}.webp`}  alt={`Logo de ${name}`}/>
-            </div>
-            <img src={`/images/projects/${name}-screen.webp`}  alt={`Proyecto ${name} - vista previa`}/>
-        </div>
-    </main>
+  <meta slot="head" property="twitter:card" content="summary_large_image" />
+  <meta slot="head" property="twitter:url" content="" />
+  <meta
+    slot="head"
+    property="twitter:title"
+    content={`Ivan Villegas Rojas | Desarollador Full Stack | Proyecto ${capitalizeFirstLetter(name)}`}
+  />
+  <meta
+    slot="head"
+    property="twitter:description"
+    content="Desarrollador Full Stack con experiencia para crear aplicaciones web dinámicas y responsivas. Con una sólida formación en tecnologías de front-end y back-end."
+  />
+  <meta
+    slot="head"
+    property="twitter:image"
+    content={`/images/projects/${name}-screen.webp`}
+  />
+  <button onclick="history.back()" class="btn secondary">
+    <i class="bx bx-arrow-back m-r-md"></i>
+    <span>Volver</span>
+  </button>
+  <main class="project-page d-flex justify-content-center align-items-center">
+    <div class="screen" transition:name=`${name}-screen`>
+      <div class="avatar" transition:name={name} transition:animate="fade">
+        <img src={`/images/projects/${name}.webp`} alt={`Logo de ${name}`} />
+      </div>
+      <img
+        src={`/images/projects/${name}-screen.webp`}
+        alt={`Proyecto ${name} - vista previa`}
+      />
+    </div>
+  </main>
 </MainLayout>
+<script is:inline>
+  particlesJS("particles-js", {
+    particles: {
+      number: {
+        value: 80,
+        density: {
+          enable: true,
+          value_area: 800,
+        },
+      },
+      color: {
+        value: "#ffffff",
+      },
+      shape: {
+        type: "circle",
+        stroke: {
+          width: 0,
+          color: "#000000",
+        },
+        polygon: {
+          nb_sides: 5,
+        },
+        image: {
+          src: "img/github.svg",
+          width: 100,
+          height: 100,
+        },
+      },
+      opacity: {
+        value: 0.5,
+        random: false,
+        anim: {
+          enable: false,
+          speed: 1,
+          opacity_min: 0.1,
+          sync: false,
+        },
+      },
+      size: {
+        value: 5,
+        random: true,
+        anim: {
+          enable: false,
+          speed: 40,
+          size_min: 0.1,
+          sync: false,
+        },
+      },
+      line_linked: {
+        enable: false,
+        distance: 150,
+        color: "#ffffff",
+        opacity: 0.4,
+        width: 1,
+      },
+      move: {
+        enable: true,
+        speed: 1,
+        direction: "none",
+        random: false,
+        straight: false,
+        out_mode: "bounce",
+        bounce: false,
+        attract: {
+          enable: false,
+          rotateX: 600,
+          rotateY: 1200,
+        },
+      },
+    },
+    interactivity: {
+      detect_on: "canvas",
+      events: {
+        onhover: {
+          enable: false,
+          mode: "bubble",
+        },
+        onclick: {
+          enable: false,
+          mode: "push",
+        },
+        resize: true,
+      },
+      modes: {
+        grab: {
+          distance: 400,
+          line_linked: {
+            opacity: 1,
+          },
+        },
+        bubble: {
+          distance: 400,
+          size: 40,
+          duration: 2,
+          opacity: 8,
+          speed: 3,
+        },
+        repulse: {
+          distance: 200,
+          duration: 0.4,
+        },
+        push: {
+          particles_nb: 4,
+        },
+        remove: {
+          particles_nb: 2,
+        },
+      },
+    },
+    retina_detect: true,
+  });
+</script>

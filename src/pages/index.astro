@@ -4,19 +4,19 @@ import me from '../assets/images/me.webp'
 ---
 
 <MainLayout title="Inicio" minwidth="600px">
-	<meta  slot="head" name="title" content="Ivan Villegas Rojas - Desarollador"/>
-    <meta  slot="head" name="description" content="¡Hola! Soy Desarrollador Full Stack con experiencia para crear aplicaciones web dinámicas y responsivas. Con una sólida formación en tecnologías de front-end y back-end." />
+	<meta  slot="head" name="title" content="Ivan Villegas Rojas | Desarollador Full Stack"/>
+    <meta  slot="head" name="description" content="Desarrollador Full Stack con experiencia para crear aplicaciones web dinámicas y responsivas. Con una sólida formación en tecnologías de front-end y back-end." />
 
     <meta  slot="head" property="og:type" content="website" />
     <meta  slot="head" property="og:url" content="" />
-    <meta  slot="head" property="og:title" content="Ivan Villegas Rojas - Desarollador" />
-    <meta  slot="head" property="og:description" content="¡Hola! Soy Desarrollador Full Stack con experiencia para crear aplicaciones web dinámicas y responsivas. Con una sólida formación en tecnologías de front-end y back-end." />
+    <meta  slot="head" property="og:title" content="Ivan Villegas Rojas | Desarollador Full Stack" />
+    <meta  slot="head" property="og:description" content="Desarrollador Full Stack con experiencia para crear aplicaciones web dinámicas y responsivas. Con una sólida formación en tecnologías de front-end y back-end." />
     <meta  slot="head" property="og:image" content={me.src} />
 
     <meta  slot="head" property="twitter:card" content="summary_large_image" />
     <meta  slot="head" property="twitter:url" content="" />
-    <meta  slot="head" property="twitter:title" content="Ivan Villegas Rojas - Desarollador" />
-    <meta  slot="head" property="twitter:description" content="¡Hola! Soy Desarrollador Full Stack con experiencia para crear aplicaciones web dinámicas y responsivas. Con una sólida formación en tecnologías de front-end y back-end." />
+    <meta  slot="head" property="twitter:title" content="Ivan Villegas Rojas | Desarollador Full Stack" />
+    <meta  slot="head" property="twitter:description" content="Desarrollador Full Stack con experiencia para crear aplicaciones web dinámicas y responsivas. Con una sólida formación en tecnologías de front-end y back-end." />
     <meta  slot="head" property="twitter:image" content={me.src} />
 	<main>
 		<div class="d-flex m-b-md">
@@ -35,10 +35,15 @@ import me from '../assets/images/me.webp'
 			<a class="btn secondary icon m-r-md" href="https://www.linkedin.com/in/ivan-villegas-rojas-184889178/" target="_blank">
 				<i class='bx bxl-linkedin bx-sm'></i>
 			</a>
-			<button class="btn secondary btn-icon">
-				<i class='bx bx-cloud-download bx-sm'></i>
-				<span>Descargar CV</span>
-			</button>
+			<a class="btn secondary icon m-r-md" href="https://github.com/Ivan547-arnus" target="_blank">
+				<i class='bx bxl-github bx-sm'></i>
+			</a>
+			<a class="btn secondary icon m-r-md" href="https://www.instagram.com/ivan._dev/" target="_blank">
+				<i class='bx bxl-instagram bx-sm'></i>
+			</a>
+			<a href="mailto:villegas.rojas.ivan@gmail.com" class="btn secondary m-r-md">
+				<i class='bx bx-envelope bx-sm'></i>
+			</a>
 		</div>
 	</main>
 	<hr class="separator">
@@ -233,3 +238,116 @@ import me from '../assets/images/me.webp'
 		</div>
 	</section>
 </MainLayout>
+
+<script is:inline>
+	particlesJS("particles-js", {
+	  particles: {
+		number: {
+		  value: 50,
+		  density: {
+			enable: true,
+			value_area: 800,
+		  },
+		},
+		color: {
+		  value: "#ffffff",
+		},
+		shape: {
+		  type: "circle",
+		  stroke: {
+			width: 0,
+			color: "#000000",
+		  },
+		  polygon: {
+			nb_sides: 5,
+		  },
+		  image: {
+			src: "img/github.svg",
+			width: 100,
+			height: 100,
+		  },
+		},
+		opacity: {
+		  value: 0.3,
+		  random: false,
+		  anim: {
+			enable: false,
+			speed: 1,
+			opacity_min: 0.1,
+			sync: false,
+		  },
+		},
+		size: {
+		  value: 6,
+		  random: true,
+		  anim: {
+			enable: false,
+			speed: 40,
+			size_min: 1,
+			sync: false,
+		  },
+		},
+		line_linked: {
+		  enable: false,
+		  distance: 150,
+		  color: "#ffffff",
+		  opacity: 0.4,
+		  width: 1,
+		},
+		move: {
+		  enable: true,
+		  speed: 1,
+		  direction: "none",
+		  random: false,
+		  straight: false,
+		  out_mode: "bounce",
+		  bounce: false,
+		  attract: {
+			enable: false,
+			rotateX: 600,
+			rotateY: 1200,
+		  },
+		},
+	  },
+	  interactivity: {
+		detect_on: "canvas",
+		events: {
+		  onhover: {
+			enable: false,
+			mode: "bubble",
+		  },
+		  onclick: {
+			enable: false,
+			mode: "push",
+		  },
+		  resize: true,
+		},
+		modes: {
+		  grab: {
+			distance: 400,
+			line_linked: {
+			  opacity: 1,
+			},
+		  },
+		  bubble: {
+			distance: 400,
+			size: 40,
+			duration: 2,
+			opacity: 8,
+			speed: 3,
+		  },
+		  repulse: {
+			distance: 200,
+			duration: 0.4,
+		  },
+		  push: {
+			particles_nb: 4,
+		  },
+		  remove: {
+			particles_nb: 2,
+		  },
+		},
+	  },
+	  retina_detect: true,
+	});
+  </script>

@@ -10,6 +10,8 @@
     "astro": "astro"
   },
   "dependencies": {
-    "astro": "^4.13.3"
+    "astro": "^4.13.3",
+    "install": "0.13.0",
+    "npm": "10.8.3"
   }
 }
